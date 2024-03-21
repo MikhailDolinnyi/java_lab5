@@ -1,4 +1,5 @@
 package collections.asks;
+
 import console.*;
 import exceptions.FIleFieldException;
 import collections.Chapter;
@@ -27,6 +28,7 @@ public class AskSpaceMarine extends AskForm<SpaceMarine> {
 
     /**
      * Сконструировать новый элемент класса {@link SpaceMarine}
+     *
      * @return объект класса {@link SpaceMarine}
      */
     @Override
@@ -42,76 +44,74 @@ public class AskSpaceMarine extends AskForm<SpaceMarine> {
     }
 
 
-
-
-    private String askName(){
+    private String askName() {
         String name;
-        while(true){
+        while (true) {
             console.println(OutputColors.toColor("Введите имя десантника", OutputColors.BLUE));
             name = scanner.nextLine().trim();
-            if (name.isEmpty()){
+            if (name.isEmpty()) {
                 console.printError("Имя не может быть пустым");
                 if (ConsoleOutput.isFileMode()) throw new FIleFieldException();
-            }
-            else{
+            } else {
                 return name;
             }
         }
     }
 
-    private Coordinates askCoordinates(){return new AskCoordinates(console).build();}
+    private Coordinates askCoordinates() {
+        return new AskCoordinates(console).build();
+    }
 
 
-
-
-    private Integer askHealth(){
-        while(true){
+    private Integer askHealth() {
+        while (true) {
             console.println(OutputColors.toColor("Введите количество HP", OutputColors.BLUE));
             String input = scanner.nextLine().trim();
-            try{
+            try {
                 return Integer.parseInt(input);
-            }catch(NumberFormatException exception){
+            } catch (NumberFormatException exception) {
                 console.printError("HP должно быть числом типа int");
                 if (ConsoleOutput.isFileMode()) throw new FIleFieldException();
             }
         }
     }
 
-    private String askAchievements(){
-        while(true){
+    private String askAchievements() {
+        while (true) {
             String achievements;
             console.println(OutputColors.toColor("Введите ачивки", OutputColors.BLUE));
             achievements = scanner.nextLine().trim();
-            if (achievements.isEmpty()){
+            if (achievements.isEmpty()) {
                 console.printError("Ачивки не могу быть пустыми");
                 if (ConsoleOutput.isFileMode()) throw new FIleFieldException();
-            }else{
+            } else {
                 return achievements;
             }
         }
     }
 
 
-    private Long askHeight(){
-        while(true){
+    private Long askHeight() {
+        while (true) {
             console.println(OutputColors.toColor("Введите рост", OutputColors.BLUE));
             String input = scanner.nextLine().trim();
-            try{
+            try {
                 return Long.parseLong(input);
-            }catch(NumberFormatException exception){
+            } catch (NumberFormatException exception) {
                 console.printError("Рост должен быть числом типа long");
-                if(ConsoleOutput.isFileMode()) throw new FIleFieldException();
+                if (ConsoleOutput.isFileMode()) throw new FIleFieldException();
             }
         }
     }
 
 
-    private Weapon askWeaponType(){
+    private Weapon askWeaponType() {
         return new AskWeaponType(console).build();
     }
 
-    private Chapter askChapter(){return new AskChapter(console).build();}
-
+    private Chapter askChapter() {
+        return new AskChapter(console).build();
+    }
 
 
 }

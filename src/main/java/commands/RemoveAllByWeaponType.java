@@ -2,7 +2,7 @@ package commands;
 
 import console.ConsoleOutput;
 import console.OutputColors;
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 import managers.CollectionManager;
 import collections.SpaceMarine;
 import collections.Weapon;
@@ -15,26 +15,27 @@ import java.util.Objects;
  * Команда 'remove_all_weapon_type'
  * удаляет все элементы, значения поля weaponType которых эквивалентны заданному
  */
-public class RemoveAllByWeaponType extends Command{
+public class RemoveAllByWeaponType extends Command {
     private CollectionManager collectionManager;
     private ConsoleOutput consoleOutput;
 
-    public RemoveAllByWeaponType(ConsoleOutput consoleOutput, CollectionManager collectionManager ){
-        super("remove_all_by_weapon_type"," weaponType: удалить все элементы" +
-            ", значения поля weaponType которых эквивалентны заданному");
+    public RemoveAllByWeaponType(ConsoleOutput consoleOutput, CollectionManager collectionManager) {
+        super("remove_all_by_weapon_type", " weaponType: удалить все элементы" +
+                ", значения поля weaponType которых эквивалентны заданному");
         this.consoleOutput = consoleOutput;
-        this.collectionManager=collectionManager;
+        this.collectionManager = collectionManager;
 
     }
 
     /**
      * Исполнить команду
+     *
      * @param args аргументы команды
-     * @throws IllegalArguments неверные аргументы команды
+     * @throws IllegalArgumentsException неверные аргументы команды
      */
     @Override
-    public void execute(String args) throws IllegalArguments {
-        if (args.isBlank()) throw new IllegalArguments();
+    public void execute(String args) throws IllegalArgumentsException {
+        if (args.isBlank()) throw new IllegalArgumentsException();
         try {
             Weapon weaponType = Weapon.valueOf(args.trim().toUpperCase());
             Collection<SpaceMarine> toRemove = collectionManager.getCollection().stream()

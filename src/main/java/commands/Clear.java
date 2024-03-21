@@ -1,7 +1,7 @@
 package commands;
 
 import console.ConsoleOutput;
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 import managers.CollectionManager;
 
 /**
@@ -20,12 +20,13 @@ public class Clear extends Command {
 
     /**
      * Исполнить команду
+     *
      * @param args аргументы команды
-     * @throws IllegalArguments неверные аргументы команды
+     * @throws IllegalArgumentsException неверные аргументы команды
      */
     @Override
-    public void execute(String args) throws IllegalArguments {
-        if (!args.isBlank()) throw new IllegalArguments();
+    public void execute(String args) throws IllegalArgumentsException {
+        if (!args.isBlank()) throw new IllegalArgumentsException();
         collectionManager.clear();
         consoleOutput.println("Элементы удалены");
     }

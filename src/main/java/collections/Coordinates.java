@@ -4,45 +4,45 @@ import java.util.Objects;
 
 /**
  * Класс координат
- *
- * */
+ */
 
 public class Coordinates implements FieldValidator {
     private Double x; //Поле не может быть null
     private double y; //Значение поля должно быть больше -273
 
-    public Coordinates(Double x, Double y){
-        this.x=x;
-        this.y=y;
+    public Coordinates(Double x, Double y) {
+        this.x = x;
+        this.y = y;
 
     }
 
 
-    public Double getX(){
+    public Double getX() {
         return x;
     }
 
-    public void setX(double x){
-        this.x=x;
+    public void setX(double x) {
+        this.x = x;
     }
 
-    public double getY(){
+    public double getY() {
         return y;
     }
 
-    public void setY(double y){
-        this.y=y;
+    public void setY(double y) {
+        this.y = y;
     }
 
 
     /**
      * Валидирует правильность полей.
+     *
      * @return true, если все верно, иначе false
      */
     @Override
     public boolean validate() {
-        if(this.x==null) return false;
-        return !(this.y<-273);
+        if (this.x == null) return false;
+        return !(this.y < -273);
     }
 
 
@@ -61,5 +61,6 @@ public class Coordinates implements FieldValidator {
 
     @Override
     public String toString() {
-        return "(" + this.x + "," + this.y + ")";}
+        return "(" + this.x + "," + this.y + ")";
+    }
 }

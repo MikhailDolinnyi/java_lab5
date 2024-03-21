@@ -3,14 +3,14 @@ package commands;
 
 import console.ConsoleOutput;
 import console.OutputColors;
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 import managers.CollectionManager;
 
 /**
  * Команда 'info'
  * Выводит в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
  */
-public class Info extends Command{
+public class Info extends Command {
     private CollectionManager collectionManager;
     private ConsoleOutput consoleOutput;
 
@@ -22,12 +22,13 @@ public class Info extends Command{
 
     /**
      * Исполнить команду
+     *
      * @param args аргументы команды
-     * @throws IllegalArguments неверные аргументы команды
+     * @throws IllegalArgumentsException неверные аргументы команды
      */
     @Override
-    public void execute(String args) throws IllegalArguments {
-        if (!args.isBlank()) throw new IllegalArguments();
+    public void execute(String args) throws IllegalArgumentsException {
+        if (!args.isBlank()) throw new IllegalArgumentsException();
         String lastInitTime = (collectionManager.getLastInitTime() == null)
                 ? "В сессии коллекция не инициализирована"
                 : collectionManager.getLastInitTime().toString();

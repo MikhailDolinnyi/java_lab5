@@ -6,14 +6,16 @@ import console.Printable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import exceptions.ExitException;
-import exceptions.InvalidForm;
+import exceptions.InvalidFormException;
 import collections.SpaceMarine;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 /**
  * Класс реализующий работу с файлами
+ *
  * @author azat2202
  */
 public class FileManager {
@@ -25,7 +27,8 @@ public class FileManager {
 
     /**
      * В конструкторе инициализируем Gson и другие переменные
-     * @param consoleOutput Пользовательский ввод-вывод
+     *
+     * @param consoleOutput     Пользовательский ввод-вывод
      * @param collectionManager Работа с коллекцией
      */
 
@@ -41,6 +44,7 @@ public class FileManager {
 
     /**
      * Обращение к переменным среды и чтение файла в поле по указанному пути
+     *
      * @throws ExitException если путь - null или отсутствует программа заканчивает выполнение
      */
     public void findFile() throws ExitException {
@@ -78,6 +82,7 @@ public class FileManager {
 
     /**
      * Создание объектов в консольном менеджере из JSON
+     *
      * @throws ExitException Если объекты в файле невалидны выходим из программы
      */
     public void createObjects() throws ExitException {
@@ -91,7 +96,7 @@ public class FileManager {
                 }
             }
             this.collectionManager.addElements(collectionManagerWithObjects.getCollection());
-        } catch (InvalidForm e) {
+        } catch (InvalidFormException e) {
             console.printError("Объекты в файле не валидны");
             throw new ExitException();
         }

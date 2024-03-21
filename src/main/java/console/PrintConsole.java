@@ -3,7 +3,7 @@ package console;
 /**
  * Класс для вывода в консоль
  */
-public class PrintConsole implements Printable{
+public class PrintConsole implements Printable {
     @Override
     public void print(String a) {
 

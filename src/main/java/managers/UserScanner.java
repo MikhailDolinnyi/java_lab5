@@ -8,5 +8,8 @@ import java.util.Scanner;
 
 public class UserScanner {
     public static Scanner userScanner = new Scanner(System.in);
-    public static Scanner getUserScanner(){return userScanner;}
+
+    public static Scanner getUserScanner() {
+        return userScanner;
+    }
 }

@@ -2,14 +2,15 @@ package commands;
 
 import console.ConsoleOutput;
 import console.OutputColors;
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 import managers.CollectionManager;
+
 /**
  * Команда 'remove_head'
  * Выводит первый элемент коллекции и удаляет его
  */
 
-public class RemoveHead extends Command{
+public class RemoveHead extends Command {
     private CollectionManager collectionManager;
     private ConsoleOutput consoleOutput;
 
@@ -20,7 +21,7 @@ public class RemoveHead extends Command{
     }
 
     @Override
-    public void execute(String args) throws  IllegalArguments {
+    public void execute(String args) throws IllegalArgumentsException {
         if (collectionManager.getCollection() == null || collectionManager.getCollection().isEmpty()) {
             consoleOutput.printError("Нечего удалять, братиш! Пуста");
             return;
@@ -29,7 +30,6 @@ public class RemoveHead extends Command{
         collectionManager.removeElement(collectionManager.getCollection().poll());
 
         consoleOutput.println(OutputColors.toColor("Объект удален успешно", OutputColors.GREEN));
-
 
 
     }

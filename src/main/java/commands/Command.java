@@ -1,24 +1,33 @@
 package commands;
 
-import console.Executable;
+
+import exceptions.CommandRuntimeException;
+import exceptions.ExitException;
+import exceptions.IllegalArgumentsException;
 
 import java.util.Objects;
 
 /**
  * Абстрактный класс для всех команд
  */
-public abstract class Command implements Executable {
+public abstract class Command {
     private final String name;
     private final String description;
+
 
     public Command(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
+
+    public void execute(String args) throws CommandRuntimeException, ExitException, IllegalArgumentsException {};
+
     public String getName() {
         return name;
     }
+
+
 
     public String getDescription() {
         return description;

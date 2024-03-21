@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
  * выводит элементы коллекции в порядке возрастания
  */
 
-public class PrintAsceding extends Command{
+public class PrintAsceding extends Command {
     private ConsoleOutput consoleOutput;
     private CollectionManager collectionManager;
 
-    public PrintAsceding(ConsoleOutput consoleOutput, CollectionManager collectionManager){
-        super("print_asceding"," : вывести элементы коллекции в порядке возрастания");
+    public PrintAsceding(ConsoleOutput consoleOutput, CollectionManager collectionManager) {
+        super("print_asceding", " : вывести элементы коллекции в порядке возрастания");
         this.consoleOutput = consoleOutput;
-        this.collectionManager=collectionManager;
+        this.collectionManager = collectionManager;
     }
 
     @Override

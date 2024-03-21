@@ -1,12 +1,13 @@
 package managers;
+
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
 /**
  * Класс, для сериализации и десериализации LocalDateTime для Gson
- *
  */
 
 public class LocalDateTimeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {

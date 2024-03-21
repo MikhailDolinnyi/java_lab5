@@ -7,11 +7,9 @@ import managers.CollectionManager;
 import managers.FileManager;
 import managers.CommandManager;
 import managers.InputManager;
-import sun.misc.Signal;
-import sun.misc.SignalHandler;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+
 
 /**
  * Main
@@ -36,12 +34,9 @@ public class Main {
         // Обработка Ctrl+C
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
-                consoleOutput.println(OutputColors.toColor("До свидания!",OutputColors.PURPLE));
+                //consoleOutput.println(OutputColors.toColor("До свидания!", OutputColors.PURPLE));
             }
         });
-
-
-
 
 
         CommandManager commandManager = new CommandManager();
@@ -52,9 +47,6 @@ public class Main {
             consoleOutput.println(OutputColors.toColor("До свидания!", OutputColors.PURPLE));
             return;
         }
-
-
-
 
 
         commandManager.addCommand(List.of(
@@ -68,23 +60,16 @@ public class Main {
                 new Save(consoleOutput, fileManager),
                 new ExecuteScript(consoleOutput, fileManager, commandManager),
                 new Exit(),
-                new RemoveHead(consoleOutput,collectionManager),
-                new AddIfMin(consoleOutput,collectionManager),
-                new RemoveLower(consoleOutput,collectionManager),
-                new RemoveAllByWeaponType(consoleOutput,collectionManager),
-                new AverageOfHeight(consoleOutput,collectionManager),
-                new PrintAsceding(consoleOutput,collectionManager)
+                new RemoveHead(consoleOutput, collectionManager),
+                new AddIfMin(consoleOutput, collectionManager),
+                new RemoveLower(consoleOutput, collectionManager),
+                new RemoveAllByWeaponType(consoleOutput, collectionManager),
+                new AverageOfHeight(consoleOutput, collectionManager),
+                new PrintAsceding(consoleOutput, collectionManager)
 
         ));
         new InputManager(consoleOutput, commandManager).interactiveMode();
 
-        // Обработка Ctrl+Z, обработка с терминала
-        AtomicBoolean running = new AtomicBoolean(true);
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            // Действия при получении сигнала Ctrl+Z
-            consoleOutput.println(OutputColors.toColor("До свидания!", OutputColors.YELLOW));
-            running.set(false);
-        }));
 
     }
 }

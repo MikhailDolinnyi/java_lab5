@@ -5,5 +5,5 @@ import java.io.IOException;
 /**
  * Класс для неверно заполненной формы
  */
-public class InvalidForm extends IOException {
+public class InvalidFormException extends IOException {
 }

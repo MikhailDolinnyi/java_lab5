@@ -7,13 +7,14 @@ import exceptions.ExitException;
  * Команда 'exit'
  * завершить программу (без сохранения в файл)
  */
-public class Exit extends Command{
-    public Exit(){
+public class Exit extends Command {
+    public Exit() {
         super("exit", ": завершить программу (без сохранения в файл)");
     }
 
     /**
      * Исполнить команду
+     *
      * @param args аргументы команды
      * @throws ExitException нужен выход из программы
      */

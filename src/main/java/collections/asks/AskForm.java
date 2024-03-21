@@ -4,6 +4,7 @@ import exceptions.AskUserException;
 
 /**
  * Абстрактный класс для пользовательского ввода
+ *
  * @param <T> класс формы
  */
 

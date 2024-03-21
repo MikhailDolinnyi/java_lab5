@@ -3,7 +3,7 @@ package commands;
 import console.ConsoleOutput;
 import console.OutputColors;
 import exceptions.FIleFieldException;
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 import managers.CollectionManager;
 import collections.SpaceMarine;
 import collections.asks.AskSpaceMarine;
@@ -15,25 +15,26 @@ import java.util.Objects;
  * Команда 'remove_lower'
  * Удаляет из коллекции все элементы, меньшие, чем заданный
  */
-public class RemoveLower extends Command{
+public class RemoveLower extends Command {
     private CollectionManager collectionManager;
     private ConsoleOutput consoleOutput;
 
-    public RemoveLower(ConsoleOutput consoleOutput, CollectionManager collectionManager){
-        super("remove_lower","{element} : удалить из коллекции все элементы, меньшие, чем заданный");
+    public RemoveLower(ConsoleOutput consoleOutput, CollectionManager collectionManager) {
+        super("remove_lower", "{element} : удалить из коллекции все элементы, меньшие, чем заданный");
         this.consoleOutput = consoleOutput;
-        this.collectionManager=collectionManager;
+        this.collectionManager = collectionManager;
     }
 
     /**
      * Исполнить команду
+     *
      * @param args аргументы команды
-     * @throws IllegalArguments неверные аргументы команды
+     * @throws IllegalArgumentsException неверные аргументы команды
      */
     @Override
-    public void execute(String args) throws IllegalArguments {
-        if (!args.isBlank()) throw new IllegalArguments();
-        class NoElements extends RuntimeException{
+    public void execute(String args) throws IllegalArgumentsException {
+        if (!args.isBlank()) throw new IllegalArgumentsException();
+        class NoElements extends RuntimeException {
 
         }
         try {
@@ -46,9 +47,9 @@ public class RemoveLower extends Command{
                     .toList();
             collectionManager.removeElements(toRemove);
             consoleOutput.println(OutputColors.toColor("Удалены элементы, меньшие, чем заданный", OutputColors.GREEN));
-        } catch (NoElements e){
+        } catch (NoElements e) {
             consoleOutput.printError("В коллекции нет элементов");
-        } catch (FIleFieldException e){
+        } catch (FIleFieldException e) {
             consoleOutput.printError("Поля в файле не валидны! Объект не создан");
         }
     }

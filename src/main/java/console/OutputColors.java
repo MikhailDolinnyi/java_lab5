@@ -25,11 +25,12 @@ public enum OutputColors {
 
     /**
      * Основной метод раскрашивания текста
-     * @param s строка которую нужно покрасить
+     *
+     * @param s     строка которую нужно покрасить
      * @param color значение цвета
      * @return цветная строка для вывода в консоль
      */
-    public static String toColor(String s, OutputColors color){
+    public static String toColor(String s, OutputColors color) {
         return color + s + OutputColors.RESET;
     }
 

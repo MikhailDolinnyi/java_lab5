@@ -4,15 +4,14 @@ import console.ConsoleOutput;
 import console.OutputColors;
 import console.Printable;
 import exceptions.NoCommandException;
-import exceptions.CommandRuntimeError;
+import exceptions.CommandRuntimeException;
 import exceptions.ExitException;
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 
 import java.util.*;
 
 /**
  * Класс обработки пользовательского ввода
- *
  */
 public class InputManager {
     private final Printable console;
@@ -26,10 +25,10 @@ public class InputManager {
     /**
      * Работа с пользователем и выполнение команд
      */
-    public void interactiveMode(){
+    public void interactiveMode() {
         Scanner userScanner = UserScanner.getUserScanner();
         while (true) {
-            try{
+            try {
                 if (!userScanner.hasNext()) throw new ExitException();
                 String userCommand = userScanner.nextLine().trim() + " "; // прибавляем пробел, чтобы split выдал два элемента в массиве
                 this.launch(userCommand.split(" ", 2));
@@ -38,11 +37,11 @@ public class InputManager {
                 console.printError("Пользовательский ввод не обнаружен!");
             } catch (NoCommandException noCommand) {
                 console.printError("Такой команды нет в списке");
-            } catch (IllegalArguments e) {
+            } catch (IllegalArgumentsException e) {
                 console.printError("Введены неправильные аргументы команды");
-            } catch (CommandRuntimeError e) {
+            } catch (CommandRuntimeException e) {
                 console.printError("Ошибка при исполнении команды");
-            } catch (ExitException exitException){
+            } catch (ExitException exitException) {
                 console.println(OutputColors.toColor("До свидания!", OutputColors.YELLOW));
                 return;
             }
@@ -51,14 +50,15 @@ public class InputManager {
 
     /**
      * Триггер выполнения команды из {@link CommandManager}
+     *
      * @param userCommand массив из 2 элементов, первый - название команды, второй - аргументы
-     * @throws NoCommandException несуществующая команда
-     * @throws ExitException команда привела к окончанию работы программы
-     * @throws IllegalArguments команда содержит неверные аргументы
-     * @throws CommandRuntimeError команда выдала ошибку во время выполнения
+     * @throws NoCommandException  несуществующая команда
+     * @throws ExitException       команда привела к окончанию работы программы
+     * @throws IllegalArgumentsException    команда содержит неверные аргументы
+     * @throws CommandRuntimeException команда выдала ошибку во время выполнения
      */
-    public void launch(String[] userCommand) throws NoCommandException, ExitException, IllegalArguments, CommandRuntimeError {
-        if (userCommand[0].equals("")) return;
+    public void launch(String[] userCommand) throws NoCommandException, ExitException, IllegalArgumentsException, CommandRuntimeException {
+        if (userCommand[0].isEmpty()) return;
         commandManager.execute(userCommand[0], userCommand[1]);
     }
 }

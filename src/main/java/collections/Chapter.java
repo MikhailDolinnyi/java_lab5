@@ -3,33 +3,41 @@ package collections;
 import console.OutputColors;
 
 import java.util.Objects;
+
 /**
  * Класс главы
- *
- * */
+ */
 public class Chapter implements FieldValidator {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Integer marinesCount; //Поле может быть null, Значение поля
     // должно быть больше 0, Максимальное значение поля: 1000
 
-    public Chapter(String name, Integer marinesCount){
-        this.name=name;
-        this.marinesCount=marinesCount;
+    public Chapter(String name, Integer marinesCount) {
+        this.name = name;
+        this.marinesCount = marinesCount;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){this.name=name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public Integer getMarinesCount(){return marinesCount;}
+    public Integer getMarinesCount() {
+        return marinesCount;
+    }
 
-    public void setMarinesCount(Integer marinesCount){this.marinesCount=marinesCount;}
+    public void setMarinesCount(Integer marinesCount) {
+        this.marinesCount = marinesCount;
+    }
 
     @Override
-    public boolean validate() {if (this.name == null || this.name.isEmpty()) return false;
-    return !(this.marinesCount<0 || this.marinesCount > 1000);}
+    public boolean validate() {
+        if (this.name == null || this.name.isEmpty()) return false;
+        return !(this.marinesCount < 0 || this.marinesCount > 1000);
+    }
 
     @Override
     public boolean equals(Object obj) {

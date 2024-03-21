@@ -1,7 +1,8 @@
 package managers;
 
-import exceptions.InvalidForm;
+import exceptions.InvalidFormException;
 import collections.SpaceMarine;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.PriorityQueue;
@@ -28,9 +29,6 @@ public class CollectionManager {
     public PriorityQueue<SpaceMarine> getCollection() {
         return collection;
     }
-
-
-
 
 
     public String getLastInitTime() {
@@ -77,12 +75,12 @@ public class CollectionManager {
      *
      * @param id         id
      * @param newElement новый элемент
-     * @throws InvalidForm Нет элемента с таким id
+     * @throws InvalidFormException Нет элемента с таким id
      */
-    public void editById(Long id, SpaceMarine newElement) throws InvalidForm {
+    public void editById(Long id, SpaceMarine newElement) throws InvalidFormException {
         SpaceMarine pastElement = this.getById(id);
         if (pastElement == null) {
-            throw new InvalidForm();
+            throw new InvalidFormException();
         }
         this.collection.remove(pastElement);
         newElement.setId(id);
@@ -99,13 +97,13 @@ public class CollectionManager {
                 .anyMatch((x) -> x.getId() == id);
     }
 
-    public void addElement(SpaceMarine spaceMarine) throws InvalidForm {
+    public void addElement(SpaceMarine spaceMarine) throws InvalidFormException {
         this.lastSaveTime = LocalDateTime.now();
-        if (!spaceMarine.validate()) throw new InvalidForm();
+        if (!spaceMarine.validate()) throw new InvalidFormException();
         collection.add(spaceMarine);
     }
 
-    public void addElements(Collection<SpaceMarine> collection) throws InvalidForm {
+    public void addElements(Collection<SpaceMarine> collection) throws InvalidFormException {
         if (collection == null) return;
         for (SpaceMarine spaceMarine : collection) {
             this.addElement(spaceMarine);

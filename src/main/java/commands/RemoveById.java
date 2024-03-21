@@ -1,7 +1,7 @@
 package commands;
 
 
-import exceptions.IllegalArguments;
+import exceptions.IllegalArgumentsException;
 import managers.CollectionManager;
 import console.ConsoleOutput;
 import console.OutputColors;
@@ -22,12 +22,13 @@ public class RemoveById extends Command {
 
     /**
      * Исполнить команду
+     *
      * @param args аргументы команды
-     * @throws IllegalArguments неверные аргументы команды
+     * @throws IllegalArgumentsException неверные аргументы команды
      */
     @Override
-    public void execute(String args) throws IllegalArguments{
-        if (args.isBlank()) throw new IllegalArguments();
+    public void execute(String args) throws IllegalArgumentsException {
+        if (args.isBlank()) throw new IllegalArgumentsException();
         class NoSuchId extends RuntimeException {
         }
         try {

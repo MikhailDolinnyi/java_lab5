@@ -2,22 +2,22 @@
   "collection": [
     {
       "id": 1,
-      "name": "53",
+      "name": "3",
       "coordinates": {
-        "x": 5.0,
-        "y": 3.0
+        "x": 5353.0,
+        "y": 5.0
       },
-      "creationDate": "Mar 13, 2024, 4:17:33 PM",
-      "health": 53,
-      "achievements": "53",
+      "creationDate": "Mar 21, 2024, 3:33:32 PM",
+      "health": 353,
+      "achievements": "3",
       "height": 3,
-      "weaponType": "GRAV_GUN",
+      "weaponType": "HEAVY_FLAMER",
       "chapter": {
-        "name": "353",
-        "marinesCount": 3
+        "name": "35",
+        "marinesCount": 35
       }
     }
   ],
-  "lastInitTime": "2024-03-13T16:17:29.2204733",
-  "lastSaveTime": "2024-03-13T16:17:39.2844977"
+  "lastInitTime": "2024-03-21T15:39:04.4110589",
+  "lastSaveTime": "2024-03-21T15:39:16.1139378"
 }
