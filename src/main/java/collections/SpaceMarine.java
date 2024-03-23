@@ -136,7 +136,7 @@ public class SpaceMarine implements FieldValidator, Comparable<SpaceMarine> {
      */
     @Override
     public int compareTo(SpaceMarine obj) {
-        return this.health - obj.health;
+        return Integer.compare(this.health, obj.health);
     }
 
     /**
