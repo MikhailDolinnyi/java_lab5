@@ -9,7 +9,7 @@ import collections.Coordinates;
  */
 public class AskCoordinates extends AskForm<Coordinates> {
     private final Printable console;
-    private final UserInput scanner;
+    private final ConsoleInput scanner;
 
     public AskCoordinates(Printable console) {
         this.console = (ConsoleOutput.isFileMode())

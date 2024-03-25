@@ -46,6 +46,7 @@ public class AddIfMin extends Command {
                     .orElse(null))) <= -1) {
                 collectionManager.addElement(newElement);
                 consoleOutput.println(OutputColors.toColor("Объект успешно добавлен", OutputColors.GREEN));
+
             } else {
                 consoleOutput.println(OutputColors.toColor("Элемент больше минимального", OutputColors.RED));
             }

@@ -11,7 +11,7 @@ import exceptions.FIleFieldException;
  */
 public class AskChapter extends AskForm<Chapter> {
     private final Printable console;
-    private final UserInput scanner;
+    private final ConsoleInput scanner;
 
     public AskChapter(Printable console) {
         this.console = (ConsoleOutput.isFileMode())

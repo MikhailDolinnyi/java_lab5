@@ -12,7 +12,7 @@ import java.util.Locale;
  */
 public class AskWeaponType extends AskForm<Weapon> {
     private final Printable console;
-    private final UserInput scanner;
+    private final ConsoleInput scanner;
 
 
     public AskWeaponType(Printable console) {

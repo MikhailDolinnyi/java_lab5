@@ -109,7 +109,7 @@ public class FileManager {
     public void saveObjects() {
 
         if (file_path == null || file_path.isEmpty()) {
-            console.printError("Путь должен быть в переменных окружения в переменной 'file_path'");
+            console.printError("Путь должен быть в аргументе командной строки в переменной 'file_path'");
         } else {
             console.println(OutputColors.toColor("Путь получен успешно", OutputColors.CYAN));
         }
@@ -121,5 +121,9 @@ public class FileManager {
         } catch (IOException e) {
             console.printError("Ошибка ввода вывода");
         }
+        catch (NullPointerException e){
+            console.printError("Указанный путь не может быть null!");
+        }
+
     }
 }

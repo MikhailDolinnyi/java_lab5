@@ -54,6 +54,7 @@ public class SpaceMarine implements FieldValidator, Comparable<SpaceMarine> {
                 .mapToLong(Long::longValue) // Меняем на mapToLong для использования Long
                 .max()
                 .orElse(0L) + 1; // Указываем 0L вместо 0, чтобы явно указать на тип Long
+
     }
 
 

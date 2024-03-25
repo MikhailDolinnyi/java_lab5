@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 /**
  * Класс для хранения файл менеджера для команды execute
  */
-public class ExecuteManager implements UserInput {
+public class ExecuteManager extends ConsoleInput {
     private static final ArrayDeque<String> pathQueue = new ArrayDeque<>();
     private static final ArrayDeque<BufferedReader> fileReaders = new ArrayDeque<>();
 
@@ -33,12 +33,4 @@ public class ExecuteManager implements UserInput {
         return pathQueue.contains(new File(path).getAbsolutePath());
     }
 
-    @Override
-    public String nextLine() {
-        try {
-            return readLine();
-        } catch (IOException e) {
-            return "";
-        }
-    }
 }

@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class AskSpaceMarine extends AskForm<SpaceMarine> {
     private final Printable console;
-    private final UserInput scanner;
+    private final ConsoleInput scanner;
 
     public AskSpaceMarine(Printable console) {
         this.console = (ConsoleOutput.isFileMode())
