@@ -45,7 +45,7 @@ public class FileManager {
     /**
      * Обращение к переменным среды и чтение файла в поле по указанному пути
      *
-     * @throws ExitException если путь - null или отсутствует программа заканчивает выполнение
+     * @throws ExitException если путь - null или отсутствует, то программа заканчивает выполнение
      */
     public void findFile() throws ExitException {
         if (file_path == null || file_path.isEmpty()) {
@@ -120,9 +120,6 @@ public class FileManager {
             console.printError("Файл не существует");
         } catch (IOException e) {
             console.printError("Ошибка ввода вывода");
-        }
-        catch (NullPointerException e){
-            console.printError("Указанный путь не может быть null!");
         }
 
     }
