@@ -7,6 +7,7 @@ import collections.Coordinates;
 import collections.SpaceMarine;
 import collections.Weapon;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -35,7 +36,7 @@ public class AskSpaceMarine extends AskForm<SpaceMarine> {
     public SpaceMarine build() {
         return new SpaceMarine(askName(),
                 askCoordinates(),
-                new Date(),
+                LocalDateTime.now(),
                 askHealth(),
                 askAchievements(),
                 askHeight(),

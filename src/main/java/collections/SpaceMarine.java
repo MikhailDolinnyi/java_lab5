@@ -2,6 +2,7 @@ package collections;
 
 import console.OutputColors;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 
@@ -17,7 +18,7 @@ public class SpaceMarine implements FieldValidator, Comparable<SpaceMarine> {
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private int health; //Значение поля должно быть больше 0
     private String achievements; //Поле не может быть null
     private Long height; //Поле может быть null
@@ -27,7 +28,7 @@ public class SpaceMarine implements FieldValidator, Comparable<SpaceMarine> {
     private static Long nextId = 0L;
 
 
-    public SpaceMarine(String name, Coordinates coordinates, java.util.Date creationDate, int health, String achievements, Long height, Weapon weaponType,
+    public SpaceMarine(String name, Coordinates coordinates, LocalDateTime creationDate, int health, String achievements, Long height, Weapon weaponType,
                        Chapter chapter) {
         this.id = incNextId();
         this.name = name;
@@ -82,11 +83,11 @@ public class SpaceMarine implements FieldValidator, Comparable<SpaceMarine> {
         this.coordinates = coordinates;
     }
 
-    public java.util.Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(java.util.Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
