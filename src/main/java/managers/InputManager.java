@@ -1,7 +1,6 @@
 package managers;
 
 import console.ConsoleOutput;
-import console.OutputColors;
 import console.Printable;
 import exceptions.NoCommandException;
 import exceptions.CommandRuntimeException;
@@ -42,7 +41,7 @@ public class InputManager {
             } catch (CommandRuntimeException e) {
                 console.printError("Ошибка при исполнении команды");
             } catch (ExitException exitException) {
-                console.println(OutputColors.toColor("До свидания!", OutputColors.YELLOW));
+                //console.println(OutputColors.toColor("До свидания!", OutputColors.YELLOW));
                 return;
             }
         }

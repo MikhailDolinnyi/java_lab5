@@ -26,17 +26,13 @@ public class Main {
             // Первый аргумент командной строки используется в качестве пути к файлу
             fileManager = new FileManager(consoleOutput, collectionManager, args[0]);
         } else {
-            consoleOutput.printError("Необходимо указать путь к файлу в качестве аргумента командной строки.");
+            consoleOutput.printError("Лее,друже, необходимо указать путь к файлу в качестве аргумента командной строки.");
             return;
         }
 
 
-        // Обработка Ctrl+C
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            public void run() {
-                //consoleOutput.println(OutputColors.toColor("До свидания!", OutputColors.PURPLE));
-            }
-        });
+        // Обработка Выхода
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> consoleOutput.println(OutputColors.toColor("Всё давай пака братиш!", OutputColors.YELLOW))));
 
 
         CommandManager commandManager = new CommandManager();
@@ -44,7 +40,7 @@ public class Main {
             fileManager.findFile();
             fileManager.createObjects();
         } catch (ExitException e) {
-            consoleOutput.println(OutputColors.toColor("До свидания!", OutputColors.PURPLE));
+            //consoleOutput.println(OutputColors.toColor("До свидания!", OutputColors.PURPLE));
             return;
         }
 

@@ -20,7 +20,7 @@ moon
 4
 help
 show
-execute_script script.txt
+execute_script ..\script.txt
 save
 add
 average_of_height
