@@ -50,7 +50,7 @@ public class ExecuteScript extends Command {
             for (String line = ExecuteManager.readLine(); line != null; line = ExecuteManager.readLine()) {
                 try {
                     commandManager.addToHistory(line);
-                    String[] cmd = (line + " ").split(" ", 2);
+                    String[] cmd = (line + " ").split(" ", 3);
                     if (cmd[0].isBlank()) return;
                     if (cmd[0].equals("execute_script")) {
                         if (ExecuteManager.fileRepeat(cmd[1])) {

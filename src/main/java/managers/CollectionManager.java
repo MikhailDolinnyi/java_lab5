@@ -36,7 +36,10 @@ public class CollectionManager {
     }
 
     public String getLastSaveTime() {
+        if(lastSaveTime != null){
         return lastSaveTime.toString();
+        }
+        return null;
     }
 
     /**
