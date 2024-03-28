@@ -29,8 +29,13 @@ public class InputManager {
         while (true) {
             try {
                 if (!userScanner.hasNext()) throw new ExitException();
-                String userCommand = userScanner.nextLine().trim() + " "; // прибавляем пробел, чтобы split выдал два элемента в массиве
-                this.launch(userCommand.split(" ", 2));
+                String userCommand = userScanner.nextLine().trim() + " "; // add = ["add", " "], remove 1 = ["remove", "1 "]
+                // = прибавляем пробел, чтобы split выдал два элемента в массиве
+                String[] common = userCommand.split(" ",2);
+                if(common.length>1){
+                    common[1]=common[1].trim();
+                }
+                this.launch(common);
                 commandManager.addToHistory(userCommand);
             } catch (NoSuchElementException exception) {
                 console.printError("Пользовательский ввод не обнаружен!");

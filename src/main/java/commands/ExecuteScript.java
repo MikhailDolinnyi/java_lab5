@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
  * Считать и исполняет скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
  */
 public class ExecuteScript extends Command {
-    private FileManager fileManager;
+    private final FileManager fileManager;
     private final ConsoleOutput consoleOutput;
     private final CommandManager commandManager;
 

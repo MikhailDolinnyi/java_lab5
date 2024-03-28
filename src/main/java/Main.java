@@ -31,6 +31,24 @@ public class Main {
         }
 
 
+//        ByteBuffer buffer = ByteBuffer.allocate(10); // Подкласс, allocate - выделение памяти
+//        // в allocate создается HeapByteBuffer, который хранит данные в обычном массиве
+//
+//        // MemorySegment - класс для работы с памятью?
+//        buffer.put((byte) 1);
+//        buffer.put((byte) 2);
+//        buffer.put((byte) 3);
+////        put(): Добавление данных в буфер.
+////        get(): Извлечение данных из буфера.
+////        flip(): Перевод буфера в режим чтения.
+////        clear(): Очистка буфера для повторного использования.
+
+
+
+        // HashMap - каждый элемент - бакет, которая хранит LinkedList со значением, список состоит из одного элемента,
+        // он ссылается на null, чтобы избежать коллизии (новое значение запишется в начало, сохранив старое)
+
+
         // Обработка Выхода
         Runtime.getRuntime().addShutdownHook(new Thread(() -> consoleOutput.println(OutputColors.toColor("Всё давай пака братиш!", OutputColors.YELLOW))));
 
