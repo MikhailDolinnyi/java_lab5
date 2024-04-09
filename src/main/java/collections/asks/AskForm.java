@@ -1,6 +1,6 @@
 package collections.asks;
 
-import exceptions.AskUserException;
+import exceptions.InvalidFormException;
 
 /**
  * Абстрактный класс для пользовательского ввода
@@ -9,5 +9,5 @@ import exceptions.AskUserException;
  */
 
 public abstract class AskForm<T> {
-    public abstract T build() throws AskUserException;
+    public abstract T build() throws InvalidFormException;
 }
