@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 /**
  * Класс реализующий работу с файлами
  *
- * @author azat2202
+ *
  */
 public class FileManager {
     private String text;

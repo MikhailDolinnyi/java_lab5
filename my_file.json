@@ -4,20 +4,20 @@
       "id": 1,
       "name": "3",
       "coordinates": {
-        "x": 533.0,
-        "y": 35.0
+        "x": 4.0,
+        "y": 5.0
       },
-      "creationDate": "2024-03-26T10:41:16.5148235",
-      "health": 35,
-      "achievements": "3",
-      "height": 4,
+      "creationDate": "2024-03-28T12:37:09.0774206",
+      "health": 3,
+      "achievements": "2",
+      "height": 2,
       "weaponType": "GRAV_GUN",
       "chapter": {
-        "name": "3",
+        "name": "et",
         "marinesCount": 4
       }
     }
   ],
-  "lastInitTime": "2024-03-26T10:41:13.6580336",
-  "lastSaveTime": "2024-03-26T10:41:22.5102934"
+  "lastInitTime": "2024-03-28T12:37:05.7409946",
+  "lastSaveTime": "2024-03-28T12:37:15.523643"
 }
